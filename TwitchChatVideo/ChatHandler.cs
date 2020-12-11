@@ -24,8 +24,8 @@ namespace TwitchChatVideo
         public bool ShowBadges { get; }
         public bool VodChat { get; }
         public float Width { get; }
-        public BTTV BTTV { get; }
-        public FFZ FFZ { get; }
+        //public BTTV BTTV { get; }
+        //public FFZ FFZ { get; }
         public Badges Badges { get; }
         public Bits Bits { get; }
 
@@ -182,7 +182,8 @@ namespace TwitchChatVideo
             }
         }
 
-        public ChatHandler(ChatVideo cv, BTTV bttv, FFZ ffz, Badges badges, Bits bits)
+        //public ChatHandler(ChatVideo cv, BTTV bttv, FFZ ffz, Badges badges, Bits bits)
+        public ChatHandler(ChatVideo cv, Badges badges, Bits bits)
         {
             Font = (Font) cv.Font.Clone();
             BoldFont = new Font(Font, FontStyle.Bold);
@@ -191,8 +192,8 @@ namespace TwitchChatVideo
             Width = cv.Width;
             Spacing = cv.LineSpacing;
             ShowBadges = cv.ShowBadges;
-            BTTV = bttv;
-            FFZ = ffz;
+            //BTTV = bttv;
+            //FFZ = ffz;
             Badges = badges;
             Bits = bits;
         }
@@ -272,7 +273,7 @@ namespace TwitchChatVideo
 
             foreach (var word in words)
             {
-                var emote = Emoji.GetEmoji(word) ?? FFZ?.GetEmote(word) ?? BTTV?.GetEmote(word) ??
+                var emote = Emoji.GetEmoji(word) ?? //FFZ?.GetEmote(word) ?? BTTV?.GetEmote(word) ??
                     TwitchEmote.GetEmote(message.Emotes?.FirstOrDefault(e => e.Begin == cursor)?.ID);
 
                 cursor += word.Length + 1;
@@ -382,7 +383,8 @@ namespace TwitchChatVideo
 
         public static Stack<DrawableMessage> MakeSampleChat(ChatVideo cv)
         {
-            using (var ch = new ChatHandler(cv, null, FFZ.SampleFFZ, Badges.SampleBadges, null))
+            //using (var ch = new ChatHandler(cv, null, FFZ.SampleFFZ, Badges.SampleBadges, null))
+            using (var ch = new ChatHandler(cv, Badges.SampleBadges, null))
             {
                 var lines = new Stack<DrawableMessage>();
                 MakeSampleMessages().ForEach(m => lines.Push(ch.MakeDrawableMessage(m)));

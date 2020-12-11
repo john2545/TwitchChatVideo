@@ -41,7 +41,7 @@ namespace TwitchChatVideo
             ChatColor = Color.FromArgb(vm.ChatColor.A, vm.ChatColor.R, vm.ChatColor.G, vm.ChatColor.B);
             Width = (int) vm.Width;
             Height = (int)vm.Height;
-            Font = new Font(vm.FontFamily.ToString(), vm.FontSize);
+            Font = new Font(vm.FontFamily.ToString(), vm.FontSize, FontStyle.Bold);
             VodChat = vm.VodChat;
             ShowBadges = vm.ShowBadges;
         }
@@ -64,8 +64,8 @@ namespace TwitchChatVideo
 
                 var bits = await TwitchDownloader.DownloadBitsAsync(video.StreamerID, progress, ct);
                 var badges = await TwitchDownloader.DownloadBadgesAsync(video.StreamerID, progress, ct);
-                var bttv = await BTTV.CreateAsync(video.Streamer, progress, ct);
-                var ffz = await FFZ.CreateAsync(video.Streamer, progress, ct);
+                //var bttv = await BTTV.CreateAsync(video.Streamer, progress, ct);
+                //var ffz = await FFZ.CreateAsync(video.Streamer, progress, ct);
                 var messages = await TwitchDownloader.GetChatAsync(ID, video.Duration, progress, ct);
 
                 if(ct.IsCancellationRequested)
@@ -73,7 +73,8 @@ namespace TwitchChatVideo
                     return false;
                 }
 
-                using (var chat_handler = new ChatHandler(this, bttv, ffz, badges, bits))
+                //using (var chat_handler = new ChatHandler(this, bttv, ffz, badges, bits))
+                using (var chat_handler = new ChatHandler(this, badges, bits))
                 {
                     int current = 0;
 
@@ -117,6 +118,14 @@ namespace TwitchChatVideo
             {
                 using (var writer = new VideoFileWriter())
                 {
+                    if (Width % 2 != 0)
+                    {
+                        Width -= 1;
+                    }
+                    if (Height % 2 != 0)
+                    {
+                        Height -= 1;
+                    }
                     using (var bmp = new Bitmap(Width, Height))
                     {
                         writer.Open(path, Width, Height, FPS, Codec);

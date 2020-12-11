@@ -25,6 +25,8 @@ namespace TwitchChatVideo
             Rendering,
             [Description("Cleaning Up Resources")]
             CleaningUp,
+            [Description("Video width and height must be multiples of 2")]
+            Multiples,
         }
 
         public VideoStatus Status { get; }
