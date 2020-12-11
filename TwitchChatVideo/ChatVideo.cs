@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.WindowsAPICodePack.Taskbar;
 using static TwitchChatVideo.ChatHandler;
 using Text = TwitchChatVideo.ChatHandler.Text;
 
@@ -130,15 +131,19 @@ namespace TwitchChatVideo
                     {
                         writer.Open(path, Width, Height, FPS, Codec);
                         var bounds = new Rectangle(0, 0, Width, Height);
+                        TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Normal);
 
                         for (int i = start_frame; i <= end_frame; i++)
                         {
                             if (ct.IsCancellationRequested)
                             {
+                                TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Paused);
+                                TaskbarManager.Instance.SetProgressValue(0, 1);
                                 progress?.Report(new VideoProgress(0, 1, VideoProgress.VideoStatus.Idle));
                                 return false;
                             }
 
+                            TaskbarManager.Instance.SetProgressValue(i, end_frame);
                             progress?.Report(new VideoProgress(i, end_frame, VideoProgress.VideoStatus.Rendering));
 
                             if (last_chat < lines.Count)
@@ -161,6 +166,8 @@ namespace TwitchChatVideo
                             DrawFrame(bmp, drawable_messages, i);
                             writer.WriteVideoFrame(bmp);
                         }
+
+                        TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Paused);
 
 
                         return true;
