@@ -224,11 +224,11 @@
 
 						foreach (var line in message.Lines)
 						{
+							int x_user;
 							foreach (var drawable in line.Drawables)
 							{
 								var x = line.OffsetX + drawable.OffsetX*Ratio;
-								var y = line.OffsetY + drawable.OffsetY + message_y;
-								int x_user;
+								var y = line.OffsetY + drawable.OffsetY + message_y;								
 
 								if (drawable is User)
 								{
@@ -247,7 +247,7 @@
 								{
 									var msg = drawable as Text;
 									drawing.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
-									drawing.DrawString(msg.Message, msg.Font, msg.Brush, drawable.OffsetX-(int)x_user/Ratio, y);									
+									drawing.DrawString(msg.Message, msg.Font, msg.Brush, drawable.OffsetX-x_user/Ratio, y);									
 								}
 								else if (drawable is Emote)
 								{
