@@ -43,7 +43,7 @@
 				ChatColor = Color.FromArgb(vm.ChatColor.A, vm.ChatColor.R, vm.ChatColor.G, vm.ChatColor.B);
 				Width = (int) vm.Width;
 				Height = (int)vm.Height;
-				Font = new Font(vm.FontFamily.ToString(), vm.FontSize, FontStyle.Bold);
+				Font = new Font(vm.FontFamily.ToString(), vm.FontSize);
 				Ratio = (float)vm.FontSize/12;
 				VodChat = vm.VodChat;
 				ShowBadges = vm.ShowBadges;
