@@ -30,7 +30,7 @@
 			public int Width { get; internal set; }
 			public int Height { get; internal set; }
 			public Font Font { get; internal set; }
-			public int Ratio=10;
+			public float Ratio=1;
 			public bool VodChat { get; internal set; }
 			public float LineSpacing { get; internal set; }
 			public bool ShowBadges { get; internal set; }
@@ -44,7 +44,7 @@
 				Width = (int) vm.Width;
 				Height = (int)vm.Height;
 				Font = new Font(vm.FontFamily.ToString(), vm.FontSize, FontStyle.Bold);
-				Ratio = (int)vm.FontSize/12;
+				Ratio = (float)vm.FontSize/10;
 				VodChat = vm.VodChat;
 				ShowBadges = vm.ShowBadges;
 			}
@@ -240,7 +240,7 @@
 								{
 									float Old_OffsetX = drawable.OffsetX;
 									var badge = drawable as Badge;
-									drawing.DrawImage(badge.Image, new RectangleF(x, y, badge.Image.Width*Ratio, badge.Image.Height*Ratio));
+									drawing.DrawImage(badge.Image, new RectangleF(x, y, (int)badge.Image.Width*Ratio, (int)badge.Image.Height*Ratio));
 									drawable.OffsetX = Old_OffsetX+(drawable.OffsetX-Old_OffsetX)*Ratio;
 									Old_OffsetX = drawable.OffsetX;
 																	}
@@ -255,7 +255,7 @@
 									float Old_OffsetX = drawable.OffsetX;
 									var emote = drawable as Emote;
 									emote.SetFrame(frame);
-									drawing.DrawImage(emote.Image, new RectangleF(x, y, emote.Image.Width*Ratio, emote.Image.Height*Ratio));
+									drawing.DrawImage(emote.Image, new RectangleF(x, y, (int)emote.Image.Width*Ratio, (int)emote.Image.Height*Ratio));
 									drawable.OffsetX = Old_OffsetX+(drawable.OffsetX-Old_OffsetX)*Ratio;
 									Old_OffsetX = drawable.OffsetX;
 								}
