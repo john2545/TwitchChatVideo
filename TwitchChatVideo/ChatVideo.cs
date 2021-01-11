@@ -229,15 +229,15 @@
 							/// 1=badge, 2=Text, 3=User, 4=Emote
 							foreach (var drawable in line.Drawables)
 							{
-								var x = line.OffsetX + drawable.OffsetX*Ratio;
+								var x = line.OffsetX + drawable.OffsetX;
 								var y = line.OffsetY + drawable.OffsetY + message_y;
 								
 
 								if (drawable is User)
 								{
-									if (prev == 2 || prev == 3)
+									if (prev == 1 || prev == 4)
 									{
-										x=prev_x+(x-prev_x)/Ratio;
+										x=x+(prev_x)*(Ratio-1);
 									}
 									prev_x = (int)x;
 									var user = drawable as User;
@@ -248,9 +248,9 @@
 								}
 								else if (drawable is Badge)
 								{
-									if (prev == 2 || prev == 3)
+									if (prev == 1 || prev == 4)
 									{
-										x=prev_x+(x-prev_x)/Ratio;
+										x=x+(prev_x)*(Ratio-1);
 									}
 									prev_x = (int)x;
 									var badge = drawable as Badge;
@@ -259,9 +259,9 @@
 								}
 								else if (drawable is Text)
 								{
-									if (prev == 2 || prev == 3)
+									if (prev == 1 || prev == 4)
 									{
-										x=prev_x+(x-prev_x)/Ratio;
+										x=x+(prev_x)*(Ratio-1);
 									}
 									prev_x = (int)x;
 									var msg = drawable as Text;
@@ -271,9 +271,9 @@
 								}
 								else if (drawable is Emote)
 								{
-									if (prev == 2 || prev == 3)
+									if (prev == 1 || prev == 4)
 									{
-										x=prev_x+(x-prev_x)/Ratio;
+										x=x+(prev_x)*(Ratio-1);
 									}
 									prev_x = (int)x;
 									var emote = drawable as Emote;
