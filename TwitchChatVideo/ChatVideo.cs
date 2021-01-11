@@ -219,7 +219,7 @@
 					foreach (var message in messages)
 					{
 						var last_line = message.Lines.LastOrDefault();
-						var message_y = local_y - (last_line.OffsetY + last_line.Height + LineSpacing);
+						var message_y = local_y - (last_line.OffsetY + last_line.Height + LineSpacing*Ratio);
 						local_y = message_y;
 
 						foreach (var line in message.Lines)
