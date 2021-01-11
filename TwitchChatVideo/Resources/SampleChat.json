@@ -1,4 +1,123 @@
 ﻿[
+   {
+    "commenter": {
+      "display_name": "룩삼"
+    },
+    "source": "chat",
+    "message": {
+      "body": "널 만날 생각에 설레이지, 난 Summer hot daily",
+      "is_action": false,
+      "user_badges": [
+        {
+          "_id": "subscriber",
+          "version": "3"
+        },
+        {
+          "_id": "bits",
+          "version": "5000"
+        }
+      ],
+      "user_color": "#00F4FF"
+    },
+    "more_replies": false
+  },
+   {
+    "commenter": {
+      "display_name": "룩삼"
+    },
+    "source": "chat",
+    "message": {
+      "body": "하이",
+      "emoticons": [
+        {
+          "_id": "clintFug",
+          "begin": 0,
+          "end": 7
+        },
+        {
+          "_id": "clintFug",
+          "begin": 9,
+          "end": 16
+        },
+        {
+          "_id": "clintFug",
+          "begin": 18,
+          "end": 25
+        },
+        {
+          "_id": "clintFug",
+          "begin": 27,
+          "end": 34
+        },
+        {
+          "_id": "clintFug",
+          "begin": 36,
+          "end": 38
+        }
+      ],
+      "is_action": false,
+      "user_badges": [
+        {
+          "_id": "vip",
+          "version": "1"
+        },
+        {
+          "_id": "subscriber",
+          "version": "6"
+        }
+      ],
+      "user_color": "#9ACD32"
+    },
+    "more_replies": false
+  },
+  {
+    "commenter": {
+      "display_name": "룩삼"
+    },
+    "source": "chat",
+    "message": {
+      "body": "하이",
+      "is_action": false,
+      "user_badges": [
+        {
+          "_id": "partner",
+          "version": "1"
+        }
+      ],
+      "user_color": "#00CCC5"
+    },
+    "more_replies": false
+  },
+  {
+    "commenter": {
+      "display_name": "룩삼"
+    },
+    "source": "chat",
+    "message": {
+      "body": "하이",
+      "is_action": false,
+      "user_color": "#DD6094"
+    },
+    "more_replies": false
+  },
+  {
+    "commenter": {
+      "display_name": "룩삼"
+    },
+    "source": "chat",
+    "message": {
+      "body": "하이",
+      "is_action": false,
+      "user_badges": [
+        {
+          "_id": "moderator",
+          "version": "1"
+        }
+      ],
+      "user_color": "#5B91BF"
+    },
+    "more_replies": false
+  },
   {
     "commenter": {
       "display_name": "룩삼"
@@ -217,124 +336,5 @@
       "user_color": "#FF0000"
     },
     "more_replies": false
-  },
-  {
-    "commenter": {
-      "display_name": "룩삼"
-    },
-    "source": "chat",
-    "message": {
-      "body": "널 만날 생각에 설레이지, 난 Summer hot daily",
-      "is_action": false,
-      "user_badges": [
-        {
-          "_id": "subscriber",
-          "version": "3"
-        },
-        {
-          "_id": "bits",
-          "version": "5000"
-        }
-      ],
-      "user_color": "#00F4FF"
-    },
-    "more_replies": false
-  },
-   {
-    "commenter": {
-      "display_name": "룩삼"
-    },
-    "source": "chat",
-    "message": {
-      "body": "하이",
-      "emoticons": [
-        {
-          "_id": "clintFug",
-          "begin": 0,
-          "end": 7
-        },
-        {
-          "_id": "clintFug",
-          "begin": 9,
-          "end": 16
-        },
-        {
-          "_id": "clintFug",
-          "begin": 18,
-          "end": 25
-        },
-        {
-          "_id": "clintFug",
-          "begin": 27,
-          "end": 34
-        },
-        {
-          "_id": "clintFug",
-          "begin": 36,
-          "end": 38
-        }
-      ],
-      "is_action": false,
-      "user_badges": [
-        {
-          "_id": "vip",
-          "version": "1"
-        },
-        {
-          "_id": "subscriber",
-          "version": "6"
-        }
-      ],
-      "user_color": "#9ACD32"
-    },
-    "more_replies": false
-  },
-  {
-    "commenter": {
-      "display_name": "룩삼"
-    },
-    "source": "chat",
-    "message": {
-      "body": "하이",
-      "is_action": false,
-      "user_badges": [
-        {
-          "_id": "partner",
-          "version": "1"
-        }
-      ],
-      "user_color": "#00CCC5"
-    },
-    "more_replies": false
-  },
-  {
-    "commenter": {
-      "display_name": "룩삼"
-    },
-    "source": "chat",
-    "message": {
-      "body": "하이",
-      "is_action": false,
-      "user_color": "#DD6094"
-    },
-    "more_replies": false
-  },
-  {
-    "commenter": {
-      "display_name": "룩삼"
-    },
-    "source": "chat",
-    "message": {
-      "body": "하이",
-      "is_action": false,
-      "user_badges": [
-        {
-          "_id": "moderator",
-          "version": "1"
-        }
-      ],
-      "user_color": "#5B91BF"
-    },
-    "more_replies": false
-  }
+  }  
 ]
