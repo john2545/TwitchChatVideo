@@ -247,7 +247,7 @@
 								{
 									var msg = drawable as Text;
 									drawing.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
-									drawing.DrawString(msg.Message, msg.Font, msg.Brush, drawable.OffsetX-x_user/Ratio, y);									
+									drawing.DrawString(msg.Message, msg.Font, msg.Brush, x_user+(x-x_user)/Ratio, y);									
 								}
 								else if (drawable is Emote)
 								{
