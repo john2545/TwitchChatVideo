@@ -231,7 +231,7 @@
 
 								if (drawable is User)
 								{
-									x_user = x;
+									float x_user = (float)x;
 									var user = drawable as User;
 									drawing.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
 									drawing.DrawString(user.Name, user.Font, user.Brush, x, y);									
