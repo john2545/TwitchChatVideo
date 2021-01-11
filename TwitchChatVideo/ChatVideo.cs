@@ -235,7 +235,7 @@
 
 								if (drawable is User)
 								{
-									if (prev=2|3)
+									if (prev == 2 || prev == 3)
 									{
 										x=prev_x+(x-prev_x)/Ratio;
 									}
@@ -248,7 +248,7 @@
 								}
 								else if (drawable is Badge)
 								{
-									if (prev=2|3)
+									if (prev == 2 || prev == 3)
 									{
 										x=prev_x+(x-prev_x)/Ratio;
 									}
@@ -259,7 +259,7 @@
 								}
 								else if (drawable is Text)
 								{
-									if (prev=2|3)
+									if (prev == 2 || prev == 3)
 									{
 										x=prev_x+(x-prev_x)/Ratio;
 									}
@@ -271,7 +271,7 @@
 								}
 								else if (drawable is Emote)
 								{
-									if (prev=2|3)
+									if (prev == 2 || prev == 3)
 									{
 										x=prev_x+(x-prev_x)/Ratio;
 									}
