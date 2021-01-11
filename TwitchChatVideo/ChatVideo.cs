@@ -231,7 +231,7 @@
 
 								if (drawable is User)
 								{
-									float x_user = (float)x;
+									int x_user = (int)x;
 									var user = drawable as User;
 									drawing.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
 									drawing.DrawString(user.Name, user.Font, user.Brush, x, y);									
@@ -246,7 +246,7 @@
 								{
 									var msg = drawable as Text;
 									drawing.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
-									drawing.DrawString(msg.Message, msg.Font, msg.Brush, drawable.OffsetX-x_user/Ratio, y);									
+									drawing.DrawString(msg.Message, msg.Font, msg.Brush, drawable.OffsetX-(int)x_user/Ratio, y);									
 								}
 								else if (drawable is Emote)
 								{
