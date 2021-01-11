@@ -232,7 +232,7 @@
 								if (drawable is User)
 								{
 									var user = drawable as User;
-									drawing.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+									drawing.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
 									drawing.DrawString(user.Name, user.Font, user.Brush, x, y);
 
 								}
@@ -244,7 +244,7 @@
 								else if (drawable is Text)
 								{
 									var msg = drawable as Text;
-									drawing.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+									drawing.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
 									drawing.DrawString(msg.Message, msg.Font, msg.Brush, x, y);
 								}
 								else if (drawable is Emote)
