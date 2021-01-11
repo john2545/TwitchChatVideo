@@ -238,10 +238,9 @@
 								}
 								else if (drawable is Badge)
 								{
-									float Old_OffsetX = drawable.OffsetX;
 									var badge = drawable as Badge;
 									drawing.DrawImage(badge.Image, new RectangleF(x, y, (int)badge.Image.Width*Ratio, (int)badge.Image.Height*Ratio));
-									drawable.OffsetX = Old_OffsetX+(drawable.OffsetX-Old_OffsetX)*Ratio;
+									drawable.OffsetX += (int)badge.Image.Width*(Ratio-1);
 								}
 								else if (drawable is Text)
 								{
@@ -251,11 +250,10 @@
 								}
 								else if (drawable is Emote)
 								{
-									float Old_OffsetX = drawable.OffsetX;
 									var emote = drawable as Emote;
 									emote.SetFrame(frame);
 									drawing.DrawImage(emote.Image, new RectangleF(x, y, (int)emote.Image.Width*Ratio, (int)emote.Image.Height*Ratio));
-									drawable.OffsetX = Old_OffsetX+(drawable.OffsetX-Old_OffsetX)*Ratio;
+									drawable.OffsetX += (int)emote.Image.Width*(Ratio-1);
 								}
 							}
 						}
