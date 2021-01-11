@@ -29,6 +29,7 @@
 			public Color ChatColor { get; internal set; }
 			public int Width { get; internal set; }
 			public int Height { get; internal set; }
+			public int BitRate { get; }
 			public Font Font { get; internal set; }
 			public float Ratio=1;
 			public bool VodChat { get; internal set; }
@@ -43,6 +44,7 @@
 				ChatColor = Color.FromArgb(vm.ChatColor.A, vm.ChatColor.R, vm.ChatColor.G, vm.ChatColor.B);
 				Width = (int) vm.Width;
 				Height = (int)vm.Height;
+				BitRate = Width*Height*FPS*2;
 				Font = new Font(vm.FontFamily.ToString(), vm.FontSize);
 				Ratio = (float)vm.FontSize/12;
 				VodChat = vm.VodChat;
@@ -131,7 +133,7 @@
 						}
 						using (var bmp = new Bitmap(Width, Height))
 						{
-							writer.Open(path, Width, Height, FPS, Codec, Width*Height*FPS*20);
+							writer.Open(path, Width, Height, FPS, Codec, BitRate);
 							var bounds = new Rectangle(0, 0, Width, Height);
 							TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Normal);
 
