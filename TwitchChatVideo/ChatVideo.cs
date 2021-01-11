@@ -224,7 +224,7 @@
 
 						foreach (var line in message.Lines)
 						{
-							int x_user;
+							int x_user=0;
 							foreach (var drawable in line.Drawables)
 							{
 								var x = line.OffsetX + drawable.OffsetX*Ratio;
