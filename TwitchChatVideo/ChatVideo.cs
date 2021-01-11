@@ -44,7 +44,7 @@
 				Width = (int) vm.Width;
 				Height = (int)vm.Height;
 				Font = new Font(vm.FontFamily.ToString(), vm.FontSize, FontStyle.Bold);
-				Ratio = (int)vm.FontSize/10;
+				Ratio = (int)vm.FontSize/12;
 				VodChat = vm.VodChat;
 				ShowBadges = vm.ShowBadges;
 			}
@@ -238,10 +238,11 @@
 								}
 								else if (drawable is Badge)
 								{
-									old_drawable.OffsetX = drawable.OffsetX;
+									float Old_OffsetX = drawable.OffsetX;
 									var badge = drawable as Badge;
 									drawing.DrawImage(badge.Image, new RectangleF(x, y, badge.Image.Width*Ratio, badge.Image.Height*Ratio));
-									drawable.OffsetX = old_drawable.OffsetX+(drawable.OffsetX-old_drawable.OffsetX)*Ratio;
+									drawable.OffsetX = Old_OffsetX+(drawable.OffsetX-Old_OffsetX)*Ratio;
+									Old_OffsetX = drawable.OffsetX;
 																	}
 								else if (drawable is Text)
 								{
@@ -251,11 +252,12 @@
 								}
 								else if (drawable is Emote)
 								{
-									old_drawable.OffsetX = drawable.OffsetX;
+									float Old_OffsetX = drawable.OffsetX;
 									var emote = drawable as Emote;
 									emote.SetFrame(frame);
 									drawing.DrawImage(emote.Image, new RectangleF(x, y, emote.Image.Width*Ratio, emote.Image.Height*Ratio));
-									drawable.OffsetX = old_drawable.OffsetX+(drawable.OffsetX-old_drawable.OffsetX)*Ratio;
+									drawable.OffsetX = Old_OffsetX+(drawable.OffsetX-Old_OffsetX)*Ratio;
+									Old_OffsetX = drawable.OffsetX;
 								}
 							}
 						}
