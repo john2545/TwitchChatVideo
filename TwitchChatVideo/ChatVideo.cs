@@ -44,7 +44,7 @@
 				Width = (int) vm.Width;
 				Height = (int)vm.Height;
 				Font = new Font(vm.FontFamily.ToString(), vm.FontSize, FontStyle.Bold);
-				Ratio = (float)vm.FontSize/10;
+				Ratio = (float)vm.FontSize/12;
 				VodChat = vm.VodChat;
 				ShowBadges = vm.ShowBadges;
 			}
