@@ -226,7 +226,7 @@
 						{
 							foreach (var drawable in line.Drawables)
 							{
-								var x = line.OffsetX + drawable.OffsetX;
+								var x = line.OffsetX + drawable.OffsetX*Ratio;
 								var y = line.OffsetY + drawable.OffsetY + message_y;
 
 								if (drawable is User)
@@ -234,26 +234,25 @@
 									var user = drawable as User;
 									drawing.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
 									drawing.DrawString(user.Name, user.Font, user.Brush, x, y);
+									int x_user = x;
 
 								}
 								else if (drawable is Badge)
 								{
 									var badge = drawable as Badge;
-									drawing.DrawImage(badge.Image, new RectangleF(x, y, (int)badge.Image.Width*Ratio, (int)badge.Image.Height*Ratio));
-									drawable.OffsetX += (int)badge.Image.Width*(Ratio-1);
+									drawing.DrawImage(badge.Image, new RectangleF(x, y, (int)badge.Image.Width*Ratio, (int)badge.Image.Height*Ratio));									
 								}
 								else if (drawable is Text)
 								{
 									var msg = drawable as Text;
 									drawing.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
-									drawing.DrawString(msg.Message, msg.Font, msg.Brush, x, y);
+									drawing.DrawString(msg.Message, msg.Font, msg.Brush, drawable.OffsetX-x_user/Ratio, y);									
 								}
 								else if (drawable is Emote)
 								{
 									var emote = drawable as Emote;
 									emote.SetFrame(frame);
 									drawing.DrawImage(emote.Image, new RectangleF(x, y, (int)emote.Image.Width*Ratio, (int)emote.Image.Height*Ratio));
-									drawable.OffsetX += (int)emote.Image.Width*(Ratio-1);
 								}
 							}
 						}
