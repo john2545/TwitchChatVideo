@@ -235,7 +235,11 @@
 
 								if (drawable is User)
 								{
-									if (prev == 1 || prev == 4)
+									if (prev == 1)
+									{
+										x=x+(prev_x)*(Ratio-1);
+									}
+									if (prev == 4)
 									{
 										x=x+(prev_x)*(Ratio-1);
 									}
@@ -248,7 +252,11 @@
 								}
 								else if (drawable is Badge)
 								{
-									if (prev == 1 || prev == 4)
+									if (prev == 1)
+									{
+										x=x+(prev_x)*(Ratio-1);
+									}
+									if (prev == 4)
 									{
 										x=x+(prev_x)*(Ratio-1);
 									}
@@ -259,7 +267,11 @@
 								}
 								else if (drawable is Text)
 								{
-									if (prev == 1 || prev == 4)
+									if (prev == 1)
+									{
+										x=x+(prev_x)*(Ratio-1);
+									}
+									if (prev == 4)
 									{
 										x=x+(prev_x)*(Ratio-1);
 									}
@@ -271,7 +283,11 @@
 								}
 								else if (drawable is Emote)
 								{
-									if (prev == 1 || prev == 4)
+									if (prev == 1)
+									{
+										x=x+(prev_x)*(Ratio-1);
+									}
+									if (prev == 4)
 									{
 										x=x+(prev_x)*(Ratio-1);
 									}
