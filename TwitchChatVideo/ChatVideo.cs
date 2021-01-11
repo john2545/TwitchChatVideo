@@ -231,10 +231,10 @@
 
 								if (drawable is User)
 								{
+									x_user = x;
 									var user = drawable as User;
 									drawing.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
-									drawing.DrawString(user.Name, user.Font, user.Brush, x, y);
-									int x_user = x;
+									drawing.DrawString(user.Name, user.Font, user.Brush, x, y);									
 
 								}
 								else if (drawable is Badge)
