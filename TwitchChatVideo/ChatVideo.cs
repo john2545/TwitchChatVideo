@@ -226,7 +226,7 @@
 						{
 							foreach (var drawable in line.Drawables)
 							{
-								var x = line.OffsetX + drawable.OffsetX*Ratio;
+								var x = line.OffsetX + drawable.OffsetX;
 								var y = line.OffsetY + drawable.OffsetY + message_y;
 
 								if (drawable is User)
@@ -238,9 +238,11 @@
 								}
 								else if (drawable is Badge)
 								{
+									old_drawable.OffsetX = drawable.OffsetX;
 									var badge = drawable as Badge;
 									drawing.DrawImage(badge.Image, new RectangleF(x, y, badge.Image.Width*Ratio, badge.Image.Height*Ratio));
-								}
+									drawable.OffsetX = old_drawable.OffsetX+(drawable.OffsetX-old_drawable.OffsetX)*Ratio;
+																	}
 								else if (drawable is Text)
 								{
 									var msg = drawable as Text;
@@ -249,9 +251,11 @@
 								}
 								else if (drawable is Emote)
 								{
+									old_drawable.OffsetX = drawable.OffsetX;
 									var emote = drawable as Emote;
 									emote.SetFrame(frame);
 									drawing.DrawImage(emote.Image, new RectangleF(x, y, emote.Image.Width*Ratio, emote.Image.Height*Ratio));
+									drawable.OffsetX = old_drawable.OffsetX+(drawable.OffsetX-old_drawable.OffsetX)*Ratio;
 								}
 							}
 						}
