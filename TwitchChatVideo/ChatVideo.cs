@@ -224,36 +224,62 @@
 
 						foreach (var line in message.Lines)
 						{
-							int x_user=0;
+							int prev_x=0;
+							int prev=0;
+							/// 1=badge, 2=Text, 3=User, 4=Emote
 							foreach (var drawable in line.Drawables)
 							{
 								var x = line.OffsetX + drawable.OffsetX*Ratio;
-								var y = line.OffsetY + drawable.OffsetY + message_y;								
+								var y = line.OffsetY + drawable.OffsetY + message_y;
+								
 
 								if (drawable is User)
 								{
-									x_user = (int)x;
+									if (prev=2|3)
+									{
+										x=prev_x+(x-prev_x)/Ratio;
+									}
+									prev_x = (int)x;
 									var user = drawable as User;
 									drawing.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
-									drawing.DrawString(user.Name, user.Font, user.Brush, x, y);									
+									drawing.DrawString(user.Name, user.Font, user.Brush, x, y);	
+									prev = 3;									
 
 								}
 								else if (drawable is Badge)
 								{
+									if (prev=2|3)
+									{
+										x=prev_x+(x-prev_x)/Ratio;
+									}
+									prev_x = (int)x;
 									var badge = drawable as Badge;
-									drawing.DrawImage(badge.Image, new RectangleF(x, y, (int)badge.Image.Width*Ratio, (int)badge.Image.Height*Ratio));									
+									drawing.DrawImage(badge.Image, new RectangleF(x, y, (int)badge.Image.Width*Ratio, (int)badge.Image.Height*Ratio));
+									prev = 1;
 								}
 								else if (drawable is Text)
 								{
+									if (prev=2|3)
+									{
+										x=prev_x+(x-prev_x)/Ratio;
+									}
+									prev_x = (int)x;
 									var msg = drawable as Text;
 									drawing.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
-									drawing.DrawString(msg.Message, msg.Font, msg.Brush, x_user+(x-x_user)/Ratio, y);									
+									drawing.DrawString(msg.Message, msg.Font, msg.Brush, x, y);	
+									prev = 2;
 								}
 								else if (drawable is Emote)
 								{
+									if (prev=2|3)
+									{
+										x=prev_x+(x-prev_x)/Ratio;
+									}
+									prev_x = (int)x;
 									var emote = drawable as Emote;
 									emote.SetFrame(frame);
 									drawing.DrawImage(emote.Image, new RectangleF(x, y, (int)emote.Image.Width*Ratio, (int)emote.Image.Height*Ratio));
+									prev = 4;
 								}
 							}
 						}
