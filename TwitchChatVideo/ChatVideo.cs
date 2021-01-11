@@ -131,7 +131,7 @@
 						}
 						using (var bmp = new Bitmap(Width, Height))
 						{
-							writer.Open(path, Width, Height, FPS, Codec);
+							writer.Open(path, Width, Height, FPS, Codec, width*height*FPS);
 							var bounds = new Rectangle(0, 0, Width, Height);
 							TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Normal);
 
