@@ -21,7 +21,7 @@
 			public const int HorizontalPad = 5;
 			public const int VerticalPad = 5;
 
-			public const int FPS = 5;
+			public const int FPS = 6;
 			public const VideoCodec Codec = VideoCodec.H264;
 
 			public string ID { get; set; }
@@ -133,7 +133,7 @@
 						}
 						using (var bmp = new Bitmap(Width, Height))
 						{
-							writer.Open(path, Width, Height, FPS, Codec, 1200*1000);
+							writer.Open(path, Width, Height, FPS, Codec);
 							var bounds = new Rectangle(0, 0, Width, Height);
 							TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Normal);
 
